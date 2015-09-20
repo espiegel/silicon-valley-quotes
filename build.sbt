@@ -13,6 +13,10 @@ libraryDependencies ++= Seq(
   specs2 % Test
 )
 
+libraryDependencies ++= Seq(
+    "org.reactivemongo" %% "play2-reactivemongo" % "0.11.7.play24"
+)
+
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
 // Play provides two styles of routers, one expects its actions to be injected, the
