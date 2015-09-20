@@ -17,7 +17,7 @@ object Database {
 
 	import models.JsonFormats._
 
-    lazy val reactiveMongoApi = Play.current.injector.instanceOf[ReactiveMongoApi]
+    val reactiveMongoApi = Play.current.injector.instanceOf[ReactiveMongoApi]
 	val collectionName = "Characters"
 
 	def collection: JSONCollection =
