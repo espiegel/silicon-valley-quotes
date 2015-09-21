@@ -16,6 +16,7 @@ libraryDependencies ++= Seq(
 libraryDependencies ++= Seq(
     "org.reactivemongo" %% "play2-reactivemongo" % "0.11.7.play24"
 )
+libraryDependencies += "org.mongeez" % "mongeez" % "0.9.4"
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 

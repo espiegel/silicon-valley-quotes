@@ -1,0 +1,7 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-1" author="eidan">
+        <script>
+            db.characters.insert([{"name":"Gilfoyle"},{"name":"Erlich"},{"name":"Dinesh"},{"name":"Jared"},{"name":"Richard"},{"name":"Gavin"}])
+        </script>
+    </changeSet>
+</mongoChangeLog>
