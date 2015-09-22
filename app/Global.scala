@@ -35,12 +35,12 @@ object Global extends GlobalSettings {
 	def runMongeez() = {
 		Logger.info(sys.props.toString())
 
-		val mongoUri = getProperty(mongoUri)
+		val uri = getProperty(mongoUri)
 		val dbName = getProperty(mongoDBName)
 
 		val mongeez = new Mongeez
 		mongeez.setFile(new ClassPathResource("mongeez/mongeez.xml"))
-		mongeez.setMongo(new MongoClient(new MongoClientURI(mongoUri)))
+		mongeez.setMongo(new MongoClient(new MongoClientURI(uri)))
 		mongeez.setDbName(dbName)
 		mongeez.process()
 	}
