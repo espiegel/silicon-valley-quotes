@@ -8,6 +8,8 @@ import play.api._
  */
 object Global extends GlobalSettings {
 
+	val mongolabUri: String = "MONGOLAB_URI"
+
 	override def onStart(app: Application) {
 		super.onStart(app)
 		Logger.info("Application has started")
@@ -23,7 +25,10 @@ object Global extends GlobalSettings {
 	def runMongeez() = {
 		Logger.info(sys.props.toString())
 
-		val mongoUri = sys.props("MONGOLAB_URI")
+		var mongoUri = sys.props(mongolabUri)
+		if(mongoUri == null || mongoUri.isEmpty) {
+			mongoUri = sys.env(mongolabUri)
+		}
 		Logger.info("mongoUri = " + mongoUri)
 
 		val mongeez = new Mongeez
