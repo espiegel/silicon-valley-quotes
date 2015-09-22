@@ -9,6 +9,7 @@ import play.api._
 object Global extends GlobalSettings {
 
 	val mongolabUri: String = "MONGOLAB_URI"
+	val mongoDBName: String = "MONGO_DB_NAME"
 
 	override def onStart(app: Application) {
 		super.onStart(app)
@@ -22,19 +23,25 @@ object Global extends GlobalSettings {
 		Logger.info("Application shutdown...")
 	}
 
+	def getProperty(key: String): String = {
+		var prop = sys.props(key)
+		if(prop == null || prop.isEmpty) {
+			prop = sys.env(key)
+		}
+		Logger.info(key + " = " + prop)
+		prop
+	}
+
 	def runMongeez() = {
 		Logger.info(sys.props.toString())
 
-		var mongoUri = sys.props(mongolabUri)
-		if(mongoUri == null || mongoUri.isEmpty) {
-			mongoUri = sys.env(mongolabUri)
-		}
-		Logger.info("mongoUri = " + mongoUri)
+		val mongoUri = getProperty(mongolabUri)
+		val dbName = getProperty(mongoDBName)
 
 		val mongeez = new Mongeez
 		mongeez.setFile(new ClassPathResource("mongeez/mongeez.xml"))
 		mongeez.setMongo(new MongoClient(new MongoClientURI(mongoUri)))
-		mongeez.setDbName("siliconValleyQuotes")
+		mongeez.setDbName(dbName)
 		mongeez.process()
 	}
 }
