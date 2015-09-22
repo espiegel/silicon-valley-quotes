@@ -8,7 +8,7 @@ import play.api._
  */
 object Global extends GlobalSettings {
 
-	val mongolabUri: String = "MONGOLAB_URI"
+	val mongoUri: String = "MONGO_URI"
 	val mongoDBName: String = "MONGO_DB_NAME"
 
 	override def onStart(app: Application) {
@@ -35,7 +35,7 @@ object Global extends GlobalSettings {
 	def runMongeez() = {
 		Logger.info(sys.props.toString())
 
-		val mongoUri = getProperty(mongolabUri)
+		val mongoUri = getProperty(mongoUri)
 		val dbName = getProperty(mongoDBName)
 
 		val mongeez = new Mongeez
