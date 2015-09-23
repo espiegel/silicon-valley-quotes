@@ -1,4 +1,55 @@
-#btnQuote {
+body {
+    background-color: gainsboro;
+    width: 80%;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+    height: 72px;
+    margin: 12px 0 0 0;
+}
+
+.header h1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.btnQuote {
     width: 128px;
     height: 64px;
+    margin: 12px 8px 24px 8px;
+}
+
+.quoteContainer {
+    width: 90%;
+    height: 800px;
+    margin: auto;
+}
+
+.quoteText {
+    float: right;
+    width: 60%;
+    text-align: -webkit-left;
+    margin: 28px 0 0 0;
+}
+
+.quoteImageContainer {
+    float: right;
+    width: 37%;
+    margin-right: 3%;
+}
+
+.quoteImage {
+    width: 100%;
+}
+
+.quoteImageTitle {
+    margin: 0 0 8px 0;
 }
