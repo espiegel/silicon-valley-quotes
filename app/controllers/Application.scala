@@ -14,7 +14,8 @@ class Application extends Controller {
 	}
 
 	def getRandomQuote = Action.async {
-		Database.getRandomQuote.map(q =>
-			Ok(Json.toJson(q.orElse(None))))
+		Quotes.getRandomQuote.map(q =>
+			Ok(Json.toJson(q.head))
+		)
 	}
 }
