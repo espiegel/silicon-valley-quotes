@@ -6,16 +6,16 @@ import play.api.mvc._
 
 class Application extends Controller {
 
-	import models.JsonFormats._
-	import models._
+    import models.JsonFormats._
+    import models._
 
-	def index = Action {
-		Ok(views.html.index("Silicon Valley Quotes"))
-	}
+    def index = Action {
+        Ok(views.html.index("Silicon Valley Quotes"))
+    }
 
-	def getRandomQuote = Action.async {
-		Quotes.getRandomQuote.map(q =>
-			Ok(Json.toJson(q.head))
-		)
-	}
+    def getRandomQuote = Action.async {
+        Quotes.getRandomQuote.map(q =>
+            Ok(Json.toJson(q.head))
+        )
+    }
 }

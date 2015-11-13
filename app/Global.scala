@@ -6,28 +6,28 @@ import play.api._
  */
 object Global extends GlobalSettings {
 
-	def init(): Unit = {
-		Quotes.init()
-	}
+    def init(): Unit = {
+        Quotes.init()
+    }
 
-	override def onStart(app: Application) {
-		super.onStart(app)
-		Logger.info("Application has started")
+    override def onStart(app: Application) {
+        super.onStart(app)
+        Logger.info("Application has started")
 
-		init()
-	}
+        init()
+    }
 
-	override def onStop(app: Application) {
-		super.onStop(app)
-		Logger.info("Application shutdown...")
-	}
+    override def onStop(app: Application) {
+        super.onStop(app)
+        Logger.info("Application shutdown...")
+    }
 
-	def getProperty(key: String): String = {
-		var prop = sys.props(key)
-		if(prop == null || prop.isEmpty) {
-			prop = sys.env(key)
-		}
-		Logger.info(key + " = " + prop)
-		prop
-	}
+    def getProperty(key: String): String = {
+        var prop = sys.props(key)
+        if(prop == null || prop.isEmpty) {
+            prop = sys.env(key)
+        }
+        Logger.info(key + " = " + prop)
+        prop
+    }
 }
