@@ -18,7 +18,6 @@ case class Quote(name: String, quote: String)
 
 class Quotes(tag: Tag) extends Table[Quote](tag, "QUOTES") {
 	def name = column[String]("NAME")
-
 	def quote = column[String]("QUOTE")
 
 	def * = (name, quote) <>(Quote.tupled, Quote.unapply)

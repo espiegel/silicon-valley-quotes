@@ -29,7 +29,7 @@ body {
 
 .quoteContainer {
     width: 90%;
-    height: 800px;
+    height: 460px;
     margin: auto;
 }
 
@@ -52,4 +52,8 @@ body {
 
 .quoteImageTitle {
     margin: 0 0 8px 0;
+}
+
+footer {
+    margin: 12px;
 }
